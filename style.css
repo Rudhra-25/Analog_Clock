@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: radial-gradient(circle, black, purple);
+}
+
+.clock {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background-color: gray;
+  border-radius: 50%;
+  align-items: center;
+  background: radial-gradient(circle, black, purple);
+}
+
+.clock::before {
+  content: "";
+  width: 520px;
+  height: 520px;
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(black, purple);
+}
+
+.number {
+  transform: rotate(calc(30deg * var(--n)));
+  position: absolute;
+  text-align: center;
+  color: white;
+  inset: 20px;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.number b {
+  transform: rotate(calc(-30deg * var(--n)));
+  display: inline-block;
+}
+
+.center-dot {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: lightgray;
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hour-hand, .minute-hand, .second-hand {
+  --rotate: 0;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%) rotate(calc(var(--rotate) * 1deg));
+  transform-origin: bottom;
+}
+
+.hour-hand {
+  width: 12px;
+  height: 150px;
+  background-color: white;
+  border-radius: 7px;
+  z-index: 10;
+  transform-origin: bottom;
+}
+
+.minute-hand {
+  width: 12px;
+  height: 195px;
+  background-color: white;
+  border-radius: 7px;
+  z-index: 10;
+  transform-origin: bottom;
+}
+
+.second-hand {
+  width: 6px;
+  height: 200px;
+  background-color: red;
+}
